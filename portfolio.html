@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortFolio</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+    body {
+        background-color: hsl(0, 0%, 100%);
+        font-family: "Forum", serif;
+        font-weight: 400;
+        font-style: normal;
+        margin: 0;
+        padding: 0;
+    }
+    .portfolio {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 3cm 15cm 20cm 18cm 13cm 8cm;
+        grid-template-areas: 
+        "header"
+        "main"
+        "about"
+        "project"
+        "contact"
+        'footer';
+        gap: 10px;
+        height: 66cm;
+    }
+    
+    .header {
+        grid-area: header;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .header .logo {
+        width: 30%;
+        margin-left: 15%;
+        font-size: 50px;
+        font-weight: 600;
+    }
+    .header .links {
+        display: flex;
+        flex-direction: row;
+    }
+    .header .links a {
+        text-decoration: none;
+        font-size: 30px;
+        margin-left: 3cm;
+        color: black;
+    }
+    .header .links a:hover {
+        scale: 1.2;
+        border-bottom: 2px solid black;
+        transition: 300ms;
+    }
+    .main {
+        grid-area: main;
+        
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .main .title {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+    .main .title p {
+        margin-left: 35%;
+        margin-top: 3cm;
+    }
+    .main .title .p1 {
+        font-size: 40px;
+    }
+    .main .title .p2 {
+        font-size: 20px;
+        margin-top: -30px;
+        text-align: justify;
+    }
+    .main .title .button {
+        height: 70px;
+        width: 140px;
+        border: 1px solid black;
+        margin-left: 35%;
+        font-size: 30px;
+        background-color: hsl(0, 0, 60%);
+        border-radius: 20px;
+        color: rgb(79, 79, 218);
+    }
+    .main .title button:hover {
+        scale: 1.1;
+        border-bottom: 2px solid black;
+        transition: 250ms;
+    }
+    .main .title .p1 span {
+        color: rgb(79, 79, 218);
+    }
+    .main .title .links {
+        display: flex;
+        flex-direction: row;
+        margin-left: 32%;
+        margin-top: 1%;
+    }
+    .main .title .links img {
+        height: 40px;
+        width: 40px;
+        margin-left: 30px;
+        margin-top: 20px;
+    }
+    .main .title .links img:hover {
+        scale: 1.2;
+        transition: 300ms;
+    }
+    .main .pic .pic1 {
+        border-radius: 50%;
+        margin-left: 30%;
+        margin-top: 20%;
+        width: 10cm;
+        height: 10cm;
+       
+        background-color: white;
+    }
+    .main .pic .pic1 img {
+        width: 12cm;
+        height: 12cm;
+    }
+    .about {
+        grid-area: about;
+        
+    }
+    .about p  {
+        text-align: center;
+        color: hsl(0, 0%, 30%);
+        font-size: 20px;
+    }
+    .about .block {
+        
+        height: 16cm;
+        width: 100%;
+        margin-top: 0.1cm;
+        padding: 1cm 10% 0 10%;
+       display: grid;
+       grid-template-rows: 7cm 7cm;
+       grid-template-columns: 10cm 10cm 10cm;
+       grid-template-areas: 
+       "image exp edu"
+       "image p p";
+       gap: 20px;
+    }
+    .about .block .image {
+        grid-area:image;
+        
+        display: grid;
+        place-content: center;
+    }
+    .about .block .image img {
+        height: 11cm;
+        width: 10cm;
+        border-radius: 20px;
+    }
+    .about .block .exp{
+        grid-area: exp;
+        border: 1px solid black;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .about .block .exp img {
+        width: 1cm;
+        height: 1cm;
+        margin: 1.5cm 0 0 4.2cm;
+    }
+     
+    .about .block .exp p  {
+        margin-top: 0;
+    }
+    .about .block .edu{
+        grid-area: edu;
+        border: 1px solid black;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .about .block .edu img {
+        width: 1cm;
+        height: 1cm;
+        margin: 1.5cm 0 0 4.2cm;
+    }
+     
+    .about .block .edu p  {
+        margin-top: 0;
+    }
+    .about .block .p{
+        grid-area: p;
+        border: 1px solid black;
+        border-radius: 20px;
+        font-size: 20px;
+        display: grid;
+        place-content: center;
+        text-align: justify;
+        padding: 0 15px 0 15px;
+    }
+    
+    .about div  {
+        text-align: center;
+        font-weight: 500;
+        font-size: 50px;
+        margin-top: -1%;
+    }
+    .experience {
+        grid-area: project;
+        
+    }
+    .experience .a1 {
+        text-align: center;
+    }
+    .experience .a1 p {
+        font-size: 25px;
+        color: hsl(0, 0%, 50%);
+    }
+    .experience .a1 span {
+        color: black;
+        font-size: 50px;
+        font-weight: 500;
+    }
+    .experience .a2 {
+        height: 15cm;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 2rem;
+    }
+    .experience .a2 div {
+        border-radius: 25px;
+        border: 1px solid black;
+        height: 13cm;
+        width: 10cm;
+        background-color: #D9AFD9;
+        background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    }
+    .experience .a2 div h3 {
+        text-align: center;
+        font-size: 35px;
+        font-weight: 200;
+    }
+    .experience .a2 div p {
+        font-size: 20px;
+        text-align: justify;
+        margin: 0 10% 0 10%;
+    }
+    .experience .a2 div:hover {
+        scale: 1.100000034;
+        transition: 300ms;
+    }
+    .contact {
+        grid-area: contact;
+        
+        height: 15cm;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .contact h2 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 45px;
+    }
+    .contact div {
+        border: 2px solid black;
+        margin: auto;
+        border-radius: 30px;
+        height:10cm;
+        width: 10cm;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 25px;
+    }
+    .contact div input  {
+        outline: 0;
+        border: 0;
+        border-bottom: 2px solid black;
+        font-size: 20px;
+        margin-top: 20px;  
+    }
+    .contact div input:first-child {
+        margin-top: 1.5cm;
+    }
+    .contact div button {
+        border: 2px solid black;
+        background-color:rgb(152,180,212);
+        height: 1cm;
+        width: 5cm;
+        font-size: 25px;
+        font-family: "Forum" , serif;
+        margin: auto;
+        border-radius: 25px;
+    }
+    .contact div button:hover {
+        scale: 1.2;
+        transition: 300ms;
+    }
+    
+    .footer {
+        grid-area: footer;
+        
+        margin-top: 1.8cm;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        color: white;
+        background-color: black;
+        font-size: 25px;
+    }
+</style>
+<body>
+    <div class="portfolio">
+        <div class="header">
+            <div class="logo">Sai..</div>
+            <div class="links">
+                <a href="">Home</a>
+                <a href="">About</a>
+                <a href="">Skills</a>
+                <a href="">Contact</a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="title">
+                <p class="p1">Hi, Its <span>Sai</span><br>I'm a <span>Full-Stack Developer</span></p>
+                <p class="p2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <button class="button">Contact</button>
+                <div class="links">
+                <img src="../icons/git.png">
+                <img src="../icons/linkedin.png">
+                <img src="../icons/instagram.png">
+                </div>
+            </div>
+            <div class="pic">
+                <div class="pic1">
+                    <img src="../Images/anime-removebg-preview.png">
+                </div>
+            </div>
+        </div>
+        <div class="about">
+            <p class="a1">Get To Know More</p>
+            <div class="a2">About Me</div>
+            <div class="block">
+                    <div class="image">
+                        <div>
+                            <img src="../icons/samurai.avif">
+                        </div>
+                    </div>
+                    <div class="exp">
+                        <img src="../icons/experience.png">
+                        <span>Experience</span>
+                        <p class="a1">2+ Years <br>
+                            Frontend Developer
+                        </p>
+                    </div>
+                    <div class="edu">
+                        <img src="../icons/graduation-cap_16682288.png">
+                        <span>Education</span>
+                        <p>B.Tech <br>
+                        M.tech</p>
+                    </div>
+                    <div class="p">
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </div>
+            </div>
+        </div>
+        <div class="experience">
+            <div class="a1">
+                <p>Explore My <br><span>Experience</span></p>
+            </div>
+            <div class="a2">
+                    <div class="b1">
+                            <h3>Frontend Developer</h3>
+                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    </div>
+                    <div class="b2">
+                            <h3>Backend Developer</h3>
+                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    </div>
+                    <div class="b3">
+                            <h3>Database</h3>
+                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    </div>
+            </div>
+        </div>
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <div class="cont">
+            <input type="text" placeholder="Enter your name">
+            <input type="email" placeholder="Enter your email">
+            <input type="text"  id="message" placeholder="Message">
+            <button>Contact Us</button>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <h2>Contact Us</h2>
+                <p>loremipsum@gmail.com</p>
+                <p>loremipsum@gmail.com</p>
+            </div>
+            <div>
+                <h2>Connect</h2>
+                <a href="#">LinkedIn</a><br>
+                <a href="#">Instagran</a>
+            </div>
+            <div>
+                <h2>Web Services</h2>
+                <p>Backend Service</p>
+                <p>Frontend Service</p>
+            </div>
+            <div>
+                <h2>Ventures</h2>
+                <p>Some Address</p>
+                <p>Some Address</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
